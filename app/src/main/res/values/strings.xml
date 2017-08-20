@@ -1,3 +1,17 @@
 <resources>
+    <!-- General values-->
     <string name="app_name">Todo</string>
+    <string name="add">Add</string>
+    <string name="back">Back</string>
+
+    <!-- Task values-->
+    <string name="task_name">Task name</string>
+    <string name="task_description">Description</string>
+    <string name="task_state">State</string>
+    <string name="task_add">Add Task</string>
+
+    <!-- List values -->
+    <string name="list_name">List name</string>
+    <string name="list_creation">Creation date</string>
+    <string name="list_add">Add List</string>
 </resources>

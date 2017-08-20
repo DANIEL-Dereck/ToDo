@@ -6,4 +6,12 @@
     android:layout_height="match_parent"
     tools:context="fr.rennes.perso.todo.activitys.TaskListActivity">
 
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="358dp"
+        android:layout_height="56dp"
+        android:text="@string/back"
+        tools:layout_editor_absoluteX="13dp"
+        tools:layout_editor_absoluteY="416dp" />
+
 </android.support.constraint.ConstraintLayout>

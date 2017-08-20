@@ -1,4 +1,4 @@
-package fr.rennes.perso.todo.entities;
+package fr.rennes.perso.todo.model;
 
 import android.text.format.DateFormat;
 

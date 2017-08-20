@@ -1,4 +1,4 @@
-package fr.rennes.perso.todo.entities;
+package fr.rennes.perso.todo.model;
 
 /**
  * Created by Dereck on 17/08/2017.

@@ -6,4 +6,54 @@
     android:layout_height="match_parent"
     tools:context="fr.rennes.perso.todo.activitys.TaskAddActivity">
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="358dp"
+        android:layout_height="56dp"
+        android:text="@string/add"
+        tools:layout_editor_absoluteX="-192dp"
+        tools:layout_editor_absoluteY="764dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/task_name"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="358dp"
+        android:layout_height="56dp"
+        android:text="@string/back"
+        tools:layout_editor_absoluteX="-192dp"
+        tools:layout_editor_absoluteY="841dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/task_description"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="124dp" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="45dp" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="350dp"
+        android:layout_height="162dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="159dp" />
 </android.support.constraint.ConstraintLayout>
