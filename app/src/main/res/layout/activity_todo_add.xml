@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="fr.rennes.perso.todo.activitys.TodoAddActivity">
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btn_back_todoAdd"
         android:layout_width="358dp"
         android:layout_height="56dp"
         android:text="@string/back"
@@ -15,7 +16,7 @@
         tools:layout_editor_absoluteY="416dp" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btn_add_todoAdd"
         android:layout_width="358dp"
         android:layout_height="56dp"
         android:text="@string/add"
@@ -23,7 +24,7 @@
         tools:layout_editor_absoluteY="339dp" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_name_todoAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/list_name"
@@ -31,7 +32,7 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/et_name_todoAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -40,4 +41,4 @@
         tools:layout_editor_absoluteY="57dp"
         tools:layout_editor_absoluteX="16dp" />
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

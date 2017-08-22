@@ -6,6 +6,7 @@ import android.os.Bundle;
 import fr.rennes.perso.todo.R;
 
 public class TodoListActivity extends AppCompatActivity {
+    private static final int MY_ACTIVITY_CODE = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

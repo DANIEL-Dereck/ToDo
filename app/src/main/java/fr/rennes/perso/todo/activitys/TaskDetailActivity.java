@@ -6,6 +6,7 @@ import android.os.Bundle;
 import fr.rennes.perso.todo.R;
 
 public class TaskDetailActivity extends AppCompatActivity {
+    private static final int MY_ACTIVITY_CODE = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

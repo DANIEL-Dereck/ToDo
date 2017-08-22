@@ -1,26 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="fr.rennes.perso.todo.activitys.TaskDetailActivity">
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="358dp"
-        android:layout_height="56dp"
-        android:text="@string/back"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="416dp" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="358dp"
-        android:layout_height="56dp"
-        android:text="@string/add"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="339dp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -38,4 +23,4 @@
         tools:layout_editor_absoluteX="14dp"
         tools:layout_editor_absoluteY="60dp" />
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
