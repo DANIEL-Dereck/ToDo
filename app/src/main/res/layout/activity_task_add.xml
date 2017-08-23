@@ -8,54 +8,44 @@
     tools:context="fr.rennes.perso.todo.activitys.TaskAddActivity">
 
     <TextView
-            android:id="@+id/tv_name_taskAdd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/task_name"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="16dp" />
+        android:id="@+id/tv_name_taskAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/task_name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
     <EditText
         android:id="@+id/et_name_taskAdd"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="45dp" />
+        android:text="Name"/>
 
     <TextView
-            android:id="@+id/tv_desc_taskAdd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/task_description"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="124dp" />
+        android:id="@+id/tv_desc_taskAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/task_description"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
     <EditText
             android:id="@+id/et_desc_taskAdd"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textMultiLine"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="159dp" />
+            android:inputType="textMultiLine"/>
 
     <Button
         android:id="@+id/btn_add_taskAdd"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/add"
-        tools:layout_editor_absoluteX="-192dp"
-        tools:layout_editor_absoluteY="764dp" />
+        android:text="@string/add" />
 
     <Button
         android:id="@+id/btn_back_taskAdd"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/back"
-        tools:layout_editor_absoluteX="-192dp"
-        tools:layout_editor_absoluteY="841dp" />
+        android:text="@string/back"/>
 
 </LinearLayout>

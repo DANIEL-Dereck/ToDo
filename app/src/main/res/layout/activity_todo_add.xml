@@ -7,38 +7,31 @@
     android:orientation="vertical"
     tools:context="fr.rennes.perso.todo.activitys.TodoAddActivity">
 
-    <Button
-        android:id="@+id/btn_back_todoAdd"
-        android:layout_width="358dp"
-        android:layout_height="56dp"
-        android:text="@string/back"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="416dp" />
-
-    <Button
-        android:id="@+id/btn_add_todoAdd"
-        android:layout_width="358dp"
-        android:layout_height="56dp"
-        android:text="@string/add"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="339dp" />
-
     <TextView
         android:id="@+id/tv_name_todoAdd"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/list_name"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
     <EditText
         android:id="@+id/et_name_todoAdd"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteY="57dp"
-        tools:layout_editor_absoluteX="16dp" />
+        android:text="Name"/>
+
+    <Button
+        android:id="@+id/btn_add_todoAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add"/>
+
+    <Button
+        android:id="@+id/btn_back_todoAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/back" />
 
 </LinearLayout>

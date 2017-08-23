@@ -9,6 +9,7 @@ public class TodoTask {
     private String task;
     private String description;
     private Boolean state;
+    private int id_list;
 
     public TodoTask() {
     }
@@ -50,4 +51,13 @@ public class TodoTask {
     public void setState(Boolean state) {
         this.state = state;
     }
+
+    public int getId_list() {
+        return id_list;
+    }
+
+    public void setId_list(int id_list) {
+        this.id_list = id_list;
+    }
+
 }
