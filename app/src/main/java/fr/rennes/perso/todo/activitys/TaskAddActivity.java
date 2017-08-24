@@ -23,8 +23,8 @@ public class TaskAddActivity extends AppCompatActivity {
         btn_back_taskAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(TaskAddActivity.this, TodoListActivity.class);
-                TaskAddActivity.this.startActivityForResult(intent, 1);
+                Intent intent = new Intent(TaskAddActivity.this, TaskListActivity.class);
+                TaskAddActivity.this.startActivityForResult(intent, 2);
             }
         });
     }

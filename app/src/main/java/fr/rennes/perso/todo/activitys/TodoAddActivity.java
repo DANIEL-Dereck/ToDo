@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import fr.rennes.perso.todo.R;
+import fr.rennes.perso.todo.model.TodoList;
 
 public class TodoAddActivity extends AppCompatActivity {
     private static final int MY_ACTIVITY_CODE = 1;
@@ -36,4 +37,9 @@ public class TodoAddActivity extends AppCompatActivity {
             }
         });
     }
+
+    protected void addList(){
+        TodoList tList = new TodoList();
+    }
+
 }

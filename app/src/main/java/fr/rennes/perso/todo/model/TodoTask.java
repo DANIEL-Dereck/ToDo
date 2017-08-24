@@ -5,6 +5,13 @@ package fr.rennes.perso.todo.model;
  */
 
 public class TodoTask {
+    public static final String TABLE = "tasks";
+    public static final String COLUMN_TASK_ID = "_id";
+    public static final String COLUMN_TASK_TASK = "task";
+    public static final String COLUMN_TASK_DESC = "description";
+    public static final String COLUMN_TASK_STATE = "state";
+    public static final String COLUMN_TASK_FK_LIST = "id_list";
+
     private int id;
     private String task;
     private String description;

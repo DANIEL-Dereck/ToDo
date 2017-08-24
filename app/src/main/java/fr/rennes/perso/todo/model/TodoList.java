@@ -2,19 +2,31 @@ package fr.rennes.perso.todo.model;
 
 import android.text.format.DateFormat;
 
+import java.util.Date;
+
 /**
  * Created by Dereck on 17/08/2017.
  */
 
 public class TodoList {
+    public static final String TABLE = "lists";
+    public static final String COLUMN_LIST_ID = "_id";
+    public static final String COLUMN_LIST_NAME = "name";
+    public static final String COLUMN_LIST_CDATE = "creatAt";
+
     private int id;
     private String name;
-    private DateFormat creationDate;
+    private Date creationDate;
 
     public TodoList() {
     }
 
-    public TodoList(String name, DateFormat creationDate) {
+    public TodoList(String name) {
+        this.name = name;
+        this.creationDate = new Date();
+    }
+
+    public TodoList(String name, Date creationDate) {
         this.name = name;
         this.creationDate = creationDate;
     }
@@ -35,11 +47,11 @@ public class TodoList {
         this.name = name;
     }
 
-    public DateFormat getCreationDate() {
+    public Date getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(DateFormat creationDate) {
+    public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
 }
