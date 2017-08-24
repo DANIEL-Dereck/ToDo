@@ -3,6 +3,7 @@ package fr.rennes.perso.todo.sqlite;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 
+import fr.rennes.perso.todo.model.TodoList;
 import fr.rennes.perso.todo.model.TodoTask;
 
 /**
@@ -23,7 +24,8 @@ public class TodoTaskRepo {
                 + TodoTask.COLUMN_TASK_TASK + " TEXT, "
                 + TodoTask.COLUMN_TASK_DESC + " TEXT,"
                 + TodoTask.COLUMN_TASK_STATE + " TEXT,"
-                + TodoTask.COLUMN_TASK_FK_LIST+ " INTEGER;";
+                + "FOREIGN KEY(" + TodoTask.COLUMN_TASK_FK_LIST + ") REFERENCES"
+                + TodoList.TABLE + "(" + TodoList.COLUMN_LIST_ID +");";
         return query;
     }
 
