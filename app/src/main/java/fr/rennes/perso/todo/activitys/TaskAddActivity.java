@@ -35,29 +35,25 @@ public class TaskAddActivity extends AppCompatActivity {
         btn_back_taskAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-
-                TodoTaskRepo tTaskRepo = new TodoTaskRepo();
-
-                // TODO : ajouter l'id de la liste
-                TodoTask tTask = new TodoTask(
-                        et_name_taskAdd.getText().toString(),
-                        et_desc_taskAdd.getText().toString(),
-                        false
-                );
-                tTaskRepo.insert(tTask);
-
-
-                Intent intent = new Intent(TaskAddActivity.this, TaskListActivity.class);
-                TaskAddActivity.this.startActivityForResult(intent, 2);
+                setResult(RESULT_CANCELED);
+                finish();
             }
         });
 
         btn_add_taskAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle extras = getIntent().getExtras();
+                int listId = extras.getInt("idList");
 
                 TodoTaskRepo tTaskRepo = new TodoTaskRepo();
-                TodoTask tTask = new TodoTask(et_name_taskAdd.getText().toString(), et_desc_taskAdd.getText().toString());
+
+                TodoTask tTask = new TodoTask(
+                        et_name_taskAdd.getText().toString(),
+                        et_desc_taskAdd.getText().toString(),
+                        false,
+                        listId
+                );
                 tTaskRepo.insert(tTask);
 
                 Intent intent = new Intent(TaskAddActivity.this, TaskListActivity.class);

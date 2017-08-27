@@ -35,8 +35,11 @@ public class TaskDetailActivity extends AppCompatActivity {
         btn_back_taskDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+                setResult(RESULT_CANCELED);
+                finish();                /*
                 Intent intent = new Intent(TaskDetailActivity.this, TodoListActivity.class);
                 TaskDetailActivity.this.startActivityForResult(intent, 1);
+                */
             }
         });
     }

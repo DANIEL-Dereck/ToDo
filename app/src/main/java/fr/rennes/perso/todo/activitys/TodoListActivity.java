@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import fr.rennes.perso.todo.R;
@@ -32,10 +33,7 @@ public class TodoListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_todo_list);
 
         btn_addNew_todoList = (Button) findViewById(R.id.btn_addNew_todoList);
-
         lv_todo_todoList = (ListView) findViewById(R.id.lv_todo_todoList);
-
-
 
         todoArrayList = (ArrayList)todoListRepo.selectList();
         todoListAdapter = new TodoListAdapter(this, todoArrayList);
@@ -46,6 +44,9 @@ public class TodoListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(TodoListActivity.this, TaskListActivity.class);
+                TodoList tList = todoArrayList.get(position);
+                intent.putExtra("todoListId", tList.getId());
+                intent.putExtra("position", position);
                 TodoListActivity.this.startActivityForResult(intent, 2);
             }
         });

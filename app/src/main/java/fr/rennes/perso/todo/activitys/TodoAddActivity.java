@@ -29,8 +29,12 @@ public class TodoAddActivity extends AppCompatActivity {
         btn_back_todoAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+                setResult(RESULT_CANCELED);
+                finish();
+                /*
                 Intent intent = new Intent(TodoAddActivity.this, TodoListActivity.class);
                 TodoAddActivity.this.startActivityForResult(intent, 1);
+                */
             }
         });
 

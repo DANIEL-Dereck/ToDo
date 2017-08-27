@@ -76,8 +76,7 @@ public class TodoTaskRepo {
     }
 
     public List<TodoTask> selectTasks(int id_list) {
-        TodoTask task = new TodoTask();
-        List<TodoTask> todoTasks = new ArrayList<TodoTask>();
+        List<TodoTask> todoTasks = new ArrayList<>();
         SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
 
         String query = "SELECT * FROM " + TodoTask.TABLE + " WHERE "
@@ -87,8 +86,7 @@ public class TodoTaskRepo {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                SimpleDateFormat format = new SimpleDateFormat();
-                task = new TodoTask(
+                TodoTask task = new TodoTask(
                         cursor.getInt(cursor.getColumnIndex(TodoTask.COLUMN_TASK_ID)),
                         cursor.getString(cursor.getColumnIndex(TodoTask.COLUMN_TASK_TASK)),
                         cursor.getString(cursor.getColumnIndex(TodoTask.COLUMN_TASK_DESC)),

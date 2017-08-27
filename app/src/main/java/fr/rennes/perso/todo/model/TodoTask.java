@@ -33,6 +33,13 @@ public class TodoTask {
         this.state = state;
     }
 
+    public TodoTask(String task, String description, Boolean state, int id_list) {
+        this.task = task;
+        this.description = description;
+        this.state = state;
+        this.id_list = id_list;
+    }
+
     public TodoTask(int id, String task, String description, Boolean state, int id_list) {
         this.id = id;
         this.task = task;
