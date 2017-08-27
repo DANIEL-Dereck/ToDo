@@ -3,16 +3,12 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    private String name;
-    private DateFormat creationDate;
-
     <TextView
         android:id="@+id/tv_todoList_item_cDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="italic"
         android:textSize="12sp"
-
         android:text="TextView" />
 
     <TextView

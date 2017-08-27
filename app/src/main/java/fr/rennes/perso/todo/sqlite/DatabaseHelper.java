@@ -1,16 +1,9 @@
 package fr.rennes.perso.todo.sqlite;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
-import fr.rennes.perso.todo.model.TodoList;
 
 /**
  * Created by Dereck on 24/08/2017.
