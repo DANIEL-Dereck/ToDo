@@ -47,7 +47,7 @@ public class TodoTaskRepo {
 
     public static String dropTable(){
         Log.d(LOGTAG, "dropTable()");
-        String query = "DROP TABLE IF EXISTS" + TodoTask.TABLE +";";
+        String query = "DROP TABLE IF EXISTS " + TodoTask.TABLE +";";
         return query;
     }
 

@@ -39,7 +39,7 @@ public class TodoListRepo {
 
     public static String dropTable(){
         Log.d(LOGTAG, "dropTable()");
-        String query = "DROP TABLE IF EXISTS" + TodoList.TABLE +";";
+        String query = "DROP TABLE IF EXISTS " + TodoList.TABLE +";";
         return query;
     }
 

@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,7 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     /* DB VALUES */
     private static final String DATABASE_NAME = "todolist.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -30,18 +31,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onOpen(SQLiteDatabase db){
         super.onOpen(db);
         if (!db.isReadOnly()){
+            Log.d(LOGTAG, "Open DB");
             db.execSQL("PRAGMA foreign_keys=ON;");
         }
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        Log.d(LOGTAG, "Create table");
         db.execSQL(TodoListRepo.createTable());
         db.execSQL(TodoTaskRepo.createTable());
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        Log.d(LOGTAG, "Upgrade");
         db.execSQL(TodoListRepo.dropTable());
         db.execSQL(TodoTaskRepo.dropTable());
         onCreate(db);
