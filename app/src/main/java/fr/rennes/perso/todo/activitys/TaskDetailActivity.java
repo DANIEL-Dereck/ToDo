@@ -17,7 +17,7 @@ public class TaskDetailActivity extends AppCompatActivity {
     private Button btn_back_taskDetail;
     private TextView tv_name_taskDetail;
     private TextView tv_desc_taskDetail;
-    private TodoTaskRepo tTaskRepo;
+    private TodoTaskRepo tTaskRepo = new TodoTaskRepo();
     private TodoTask tTask;
 
     @Override
@@ -25,8 +25,13 @@ public class TaskDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_detail);
 
-        //TODO : select with ID
-        tTask = tTaskRepo.selectTaskById(1);
+        Bundle extras = getIntent().getExtras();
+        int taskId = extras.getInt("todoTaskId");
+
+        tTask = tTaskRepo.selectTaskById(taskId);
+
+        tv_name_taskDetail = (TextView) findViewById(R.id.tv_name_taskDetail);
+        tv_desc_taskDetail = (TextView) findViewById(R.id.tv_desc_taskDetail);
 
         tv_name_taskDetail.setText(tTask.getTask());
         tv_desc_taskDetail.setText(tTask.getDescription());

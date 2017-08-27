@@ -23,10 +23,6 @@
         android:id="@+id/lv_task_taskList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <!-- TODO : add task item, on click on item go to task detail -->
-        <!-- TODO : add Checkbox for all item (CB = state) -->
-
     </ListView>
 
 </LinearLayout>

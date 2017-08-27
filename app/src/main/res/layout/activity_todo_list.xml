@@ -17,9 +17,6 @@
         android:id="@+id/lv_todo_todoList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <!-- TODO : add todo item (on click on todolist go to task list) -->
-
     </ListView>
 
 </LinearLayout>

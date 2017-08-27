@@ -31,17 +31,8 @@ public class TodoTaskRepo {
                 + TodoTask.COLUMN_TASK_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + TodoTask.COLUMN_TASK_TASK + " TEXT, "
                 + TodoTask.COLUMN_TASK_DESC + " TEXT,"
-                + TodoTask.COLUMN_TASK_STATE + " TEXT,"
+                + TodoTask.COLUMN_TASK_STATE + " INTEGER,"
                 + TodoTask.COLUMN_TASK_FK_LIST + " INTEGER ); ";
-/*
-        String query = "CREATE TABLE " + TodoTask.TABLE + " ("
-                + TodoTask.COLUMN_TASK_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + TodoTask.COLUMN_TASK_TASK + " TEXT, "
-                + TodoTask.COLUMN_TASK_DESC + " TEXT,"
-                + TodoTask.COLUMN_TASK_STATE + " TEXT,"
-                + "FOREIGN KEY(" + TodoTask.COLUMN_TASK_FK_LIST + ") REFERENCES "
-                + TodoList.TABLE + "(" + TodoList.COLUMN_LIST_ID +"));";
-*/
         return query;
     }
 
@@ -57,12 +48,14 @@ public class TodoTaskRepo {
 
         SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
         ContentValues values = new ContentValues();
-//        values.put(todoTask.COLUMN_TASK_ID , todoTask.getId());
         values.put(todoTask.COLUMN_TASK_TASK , todoTask.getTask());
         values.put(todoTask.COLUMN_TASK_DESC , todoTask.getDescription());
-        values.put(todoTask.COLUMN_TASK_STATE , todoTask.getState());
+        if (todoTask.getState() == true) {
+            values.put(todoTask.COLUMN_TASK_STATE , todoTask.TRUE);
+        } else {
+            values.put(todoTask.COLUMN_TASK_STATE , todoTask.FALSE);
+        }
         values.put(todoTask.COLUMN_TASK_FK_LIST , todoTask.getId_list());
-
         taskId = (int)db.insert(TodoTask.TABLE, null, values);
         DatabaseManager.getInstance().closeDatabase();
         return taskId;
@@ -86,11 +79,18 @@ public class TodoTaskRepo {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
+                boolean state;
+                if (cursor.getInt(cursor.getColumnIndex(TodoTask.COLUMN_TASK_STATE)) == 1)
+                {
+                  state = true;
+                } else {
+                    state = false;
+                }
                 TodoTask task = new TodoTask(
                         cursor.getInt(cursor.getColumnIndex(TodoTask.COLUMN_TASK_ID)),
                         cursor.getString(cursor.getColumnIndex(TodoTask.COLUMN_TASK_TASK)),
                         cursor.getString(cursor.getColumnIndex(TodoTask.COLUMN_TASK_DESC)),
-                        Boolean.parseBoolean(cursor.getString(cursor.getColumnIndex(TodoTask.COLUMN_TASK_STATE))),
+                        state,
                         cursor.getInt(cursor.getColumnIndex(TodoTask.COLUMN_TASK_FK_LIST)));
                 todoTasks.add(task);
             } while (cursor.moveToNext());
@@ -113,6 +113,13 @@ public class TodoTaskRepo {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
+                boolean state;
+                if (cursor.getInt(cursor.getColumnIndex(TodoTask.COLUMN_TASK_STATE)) == 1)
+                {
+                    state = true;
+                } else {
+                    state = false;
+                }
                 task = new TodoTask(
                         cursor.getInt(cursor.getColumnIndex(TodoTask.COLUMN_TASK_ID)),
                         cursor.getString(cursor.getColumnIndex(TodoTask.COLUMN_TASK_TASK)),
@@ -124,8 +131,43 @@ public class TodoTaskRepo {
 
         cursor.close();
         DatabaseManager.getInstance().closeDatabase();
-
         return task;
     }
 
+    public void UpdateStateTask(TodoTask task){
+        SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
+
+        /*
+        ContentValues cv = new ContentValues();
+        String id = TodoTask.COLUMN_TASK_ID + " " + task.getId();
+        cv.put(TodoTask.COLUMN_TASK_STATE, task.getState());
+
+        db.update(TodoTask.TABLE, cv, id, null);
+        */
+
+        int state;
+        if (task.getState() == true)
+        {
+            state = 1;
+        } else {
+            state = 0;
+        }
+
+
+        String query = "UPDATE " + TodoTask.TABLE + " SET " + TodoTask.COLUMN_TASK_STATE
+                + "= " + state + " WHERE "
+                + TodoTask.COLUMN_TASK_ID + " = " + task.getId() + " ;";
+        try{
+            db.beginTransaction();
+            db.execSQL(query);
+            db.setTransactionSuccessful();
+
+        } catch (Exception e) {
+            Log.e(LOGTAG, e.getMessage());
+        }finally {
+            db.endTransaction();
+        }
+
+        DatabaseManager.getInstance().closeDatabase();
+    }
 }

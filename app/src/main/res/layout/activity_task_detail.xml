@@ -8,9 +8,21 @@
     tools:context="fr.rennes.perso.todo.activitys.TaskDetailActivity">
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/task_name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    <TextView
         android:id="@+id/tv_name_taskDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/task_description"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
     <TextView
         android:id="@+id/tv_desc_taskDetail"

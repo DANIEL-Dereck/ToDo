@@ -7,14 +7,15 @@
         android:id="@+id/tv_taskList_item_name"
         android:layout_width="345dp"
         android:layout_height="wrap_content"
-        android:textStyle="italic"
-        android:textSize="12sp"
-
+        android:textStyle="bold"
+        android:textSize="18sp"
         android:text="TextView" />
 
     <CheckBox
         android:id="@+id/cb_taskList_item_cb"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        />
 
 </LinearLayout>

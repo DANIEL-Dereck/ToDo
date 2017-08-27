@@ -12,6 +12,9 @@ public class TodoTask {
     public static final String COLUMN_TASK_STATE = "state";
     public static final String COLUMN_TASK_FK_LIST = "id_list";
 
+    public static final int TRUE = 1;
+    public static final int FALSE = 0;
+
     private int id;
     private String task;
     private String description;

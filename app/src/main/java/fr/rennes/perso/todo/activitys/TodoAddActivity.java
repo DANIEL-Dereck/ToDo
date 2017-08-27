@@ -43,15 +43,8 @@ public class TodoAddActivity extends AppCompatActivity {
                 TodoList tList = new TodoList(et_name_todoAdd.getText().toString());
                 tListRepo.insert(tList);
 
-
-
                 setResult(RESULT_OK);
                 finish();
-
-                /*
-                Intent intent = new Intent(TodoAddActivity.this, TodoListActivity.class);
-                TodoAddActivity.this.startActivityForResult(intent, 1);
-                */
             }
         });
     }

@@ -3,10 +3,13 @@ package fr.rennes.perso.todo.activitys;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -24,6 +27,7 @@ public class TaskListActivity extends AppCompatActivity {
     private TodoTaskRepo todoTaskRepo = new TodoTaskRepo();
     private TodoTaskAdapter todoTaskAdapter;
 
+    private CheckBox cb_taskList_item_cb;
     private ListView lv_task_taskList;
     private Button btn_addNew_taskList;
     private Button btn_back_taskList;
@@ -37,14 +41,16 @@ public class TaskListActivity extends AppCompatActivity {
 
         btn_back_taskList = (Button) findViewById(R.id.btn_back_taskList);
         btn_addNew_taskList = (Button) findViewById(R.id.btn_addNew_taskList);
-
         lv_task_taskList = (ListView) findViewById(R.id.lv_task_taskList);
+        cb_taskList_item_cb = (CheckBox) findViewById(R.id.cb_taskList_item_cb);
 
         taskArrayList = (ArrayList)todoTaskRepo.selectTasks(idList);
         todoTaskAdapter = new TodoTaskAdapter(this, taskArrayList);
         todoTaskAdapter.notifyDataSetChanged();
-
         lv_task_taskList.setAdapter(todoTaskAdapter);
+
+
+
 
         lv_task_taskList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -78,17 +84,17 @@ public class TaskListActivity extends AppCompatActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK){
             Bundle extras = getIntent().getExtras();
             int idList = extras.getInt("todoListId");
-            TodoTaskRepo todoTaskRepo = new TodoTaskRepo();
 
+            TodoTaskRepo todoTaskRepo = new TodoTaskRepo();
             taskArrayList = (ArrayList)todoTaskRepo.selectTasks(idList);
             todoTaskAdapter = new TodoTaskAdapter(this, taskArrayList);
             todoTaskAdapter.notifyDataSetChanged();
             lv_task_taskList.setAdapter(todoTaskAdapter);
         }
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
 }
