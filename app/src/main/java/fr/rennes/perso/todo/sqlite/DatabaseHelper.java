@@ -17,7 +17,7 @@ import fr.rennes.perso.todo.model.TodoList;
  */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static final String LOGTAG = "DatabaseHelper";
+    private final String LOGTAG = this.getClass().toString();
 
     /* DB VALUES */
     private static final String DATABASE_NAME = "todolist.db";
@@ -29,26 +29,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onOpen(SQLiteDatabase db){
+        Log.d(LOGTAG, "Open DB");
         super.onOpen(db);
         if (!db.isReadOnly()){
-            Log.d(LOGTAG, "Open DB");
             db.execSQL("PRAGMA foreign_keys=ON;");
         }
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.d(LOGTAG, "Create table");
+        Log.d(LOGTAG, "onCreate");
         db.execSQL(TodoListRepo.createTable());
         db.execSQL(TodoTaskRepo.createTable());
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        Log.d(LOGTAG, "Upgrade");
+        Log.d(LOGTAG, "onUpgrade");
         db.execSQL(TodoListRepo.dropTable());
         db.execSQL(TodoTaskRepo.dropTable());
         onCreate(db);
-
     }
 }

@@ -3,12 +3,12 @@ package fr.rennes.perso.todo.activitys;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 import fr.rennes.perso.todo.R;
@@ -29,6 +29,7 @@ public class TodoListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(LOGTAG, "onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo_list);
 
@@ -62,6 +63,7 @@ public class TodoListActivity extends AppCompatActivity {
 
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d(LOGTAG, "onActivityResult");
         if(resultCode == RESULT_OK){
             TodoListRepo todoListRepo = new TodoListRepo();
             todoArrayList = (ArrayList)todoListRepo.selectList();

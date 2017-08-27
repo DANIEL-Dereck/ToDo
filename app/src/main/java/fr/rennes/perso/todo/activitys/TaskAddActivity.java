@@ -1,15 +1,14 @@
 package fr.rennes.perso.todo.activitys;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import fr.rennes.perso.todo.R;
 import fr.rennes.perso.todo.model.TodoTask;
-import fr.rennes.perso.todo.sqlite.TodoListRepo;
 import fr.rennes.perso.todo.sqlite.TodoTaskRepo;
 
 public class TaskAddActivity extends AppCompatActivity {
@@ -23,6 +22,7 @@ public class TaskAddActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(LOGTAG, "onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_add);
 

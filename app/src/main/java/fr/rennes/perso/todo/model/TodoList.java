@@ -1,7 +1,5 @@
 package fr.rennes.perso.todo.model;
 
-import android.text.format.DateFormat;
-
 import java.util.Date;
 
 /**

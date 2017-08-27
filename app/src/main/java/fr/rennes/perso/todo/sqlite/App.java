@@ -9,13 +9,13 @@ import android.util.Log;
  */
 
 public class App extends Application {
-    private static final String TAG = "Application";
+    private static final String LOGTAG = "Application";
     private static Context context;
     private static DatabaseHelper dbHelper;
 
     @Override
     public void onCreate() {
-        Log.d(TAG, "onCreate()");
+        Log.d(LOGTAG, "onCreate()");
         super.onCreate();
         context = this.getApplicationContext();
         dbHelper = new DatabaseHelper(context);

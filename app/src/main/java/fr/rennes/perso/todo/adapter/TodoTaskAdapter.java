@@ -1,8 +1,6 @@
 package fr.rennes.perso.todo.adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -11,17 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.io.DataOutput;
-import java.text.DateFormat;
 import java.util.List;
 
 import fr.rennes.perso.todo.R;
-import fr.rennes.perso.todo.activitys.TaskDetailActivity;
-import fr.rennes.perso.todo.activitys.TaskListActivity;
 import fr.rennes.perso.todo.model.TodoTask;
 import fr.rennes.perso.todo.sqlite.TodoTaskRepo;
 
@@ -40,6 +32,7 @@ public class TodoTaskAdapter extends ArrayAdapter<TodoTask> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        Log.d(LOGTAG, "getView");
 
         final TodoTask todoTask = getItem(position);
         pos = position;

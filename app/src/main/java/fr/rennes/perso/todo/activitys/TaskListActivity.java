@@ -9,14 +9,11 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import fr.rennes.perso.todo.R;
-import fr.rennes.perso.todo.adapter.TodoListAdapter;
 import fr.rennes.perso.todo.adapter.TodoTaskAdapter;
-import fr.rennes.perso.todo.model.TodoList;
 import fr.rennes.perso.todo.model.TodoTask;
 import fr.rennes.perso.todo.sqlite.TodoTaskRepo;
 
@@ -34,6 +31,8 @@ public class TaskListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(LOGTAG, "onCreate");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_list);
         Bundle extras = getIntent().getExtras();
@@ -84,6 +83,7 @@ public class TaskListActivity extends AppCompatActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d(LOGTAG, "onActivityResult");
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK){
             Bundle extras = getIntent().getExtras();

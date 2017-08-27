@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,7 +19,8 @@ import fr.rennes.perso.todo.model.TodoList;
  */
 
 public class TodoListRepo {
-    private static final String LOGTAG = "TodoListRepo";
+    private final String LOGTAG = this.getClass().toString();
+    private static final String LOG = "TodoListRepo";
 
     private TodoList todoList;
     
@@ -29,7 +29,7 @@ public class TodoListRepo {
     }
 
     public static String createTable(){
-        Log.d(LOGTAG, "createTable()");
+        Log.d(LOG, "createTable");
         String query = "CREATE TABLE " + TodoList.TABLE + " ("
                 + TodoList.COLUMN_LIST_ID + " INTEGER PRIMARY KEY AUTOINCREMENT , "
                 + TodoList.COLUMN_LIST_NAME + " TEXT , "
@@ -38,13 +38,13 @@ public class TodoListRepo {
     }
 
     public static String dropTable(){
-        Log.d(LOGTAG, "dropTable()");
+        Log.d(LOG, "dropTable");
         String query = "DROP TABLE IF EXISTS " + TodoList.TABLE +";";
         return query;
     }
 
     public int insert(TodoList todoList){
-        Log.d(LOGTAG, "insert()");
+        Log.d(LOGTAG, "insert");
         int listId;
 
         SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
@@ -59,6 +59,7 @@ public class TodoListRepo {
     }
 
     public List<TodoList> selectList() {
+        Log.d(LOGTAG, "selectList");
         TodoList todo = new TodoList();
         List<TodoList> todoLists = new ArrayList<TodoList>();
         SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
@@ -91,14 +92,14 @@ public class TodoListRepo {
     }
 
     public void delete(){
-        Log.d(LOGTAG, "delete()");
+        Log.d(LOGTAG, "delete");
         SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
         db.delete(TodoList.TABLE, null, null);
         DatabaseManager.getInstance().closeDatabase();
     }
 
     private String getDateTime() {
-        Log.d(LOGTAG, "getDateTime()");
+        Log.d(LOGTAG, "getDateTime");
         SimpleDateFormat dateFormat = new SimpleDateFormat(
                 "yyyy-MM-dd", Locale.getDefault());
         Date date = new Date();

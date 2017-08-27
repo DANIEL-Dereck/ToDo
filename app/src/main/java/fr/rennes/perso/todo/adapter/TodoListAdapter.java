@@ -4,9 +4,9 @@ import fr.rennes.perso.todo.R;
 import fr.rennes.perso.todo.model.TodoList;
 
 import android.content.Context;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +21,7 @@ import java.util.List;
  */
 
 public class TodoListAdapter extends ArrayAdapter<TodoList> {
-    public static final String LOGTAG = "TodoListAdapter";
+    public final String LOGTAG = this.getClass().toString();
 
     public TodoListAdapter(@NonNull Context context, @NonNull List<TodoList> objects) {
         super(context,0, objects);
@@ -30,6 +30,7 @@ public class TodoListAdapter extends ArrayAdapter<TodoList> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        Log.d(LOGTAG, "getView");
 
         TodoList todoList = getItem(position);
 

@@ -9,7 +9,8 @@ import android.util.Log;
  */
 
 public class DatabaseManager {
-    private static final String LOGTAG = "DatabaseManager";
+    private final String LOGTAG = this.getClass().toString();
+    private static final String LOG = "DatabaseManager";
 
     private Integer mOpenCounter = 0;
 
@@ -18,7 +19,7 @@ public class DatabaseManager {
     private SQLiteDatabase mDatabase;
 
     public static synchronized void initInstance(SQLiteOpenHelper helper){
-        Log.d(LOGTAG, "initInstance()");
+        Log.d(LOG, "initInstance");
         if (instance == null)
         {
             instance = new DatabaseManager();
@@ -27,6 +28,7 @@ public class DatabaseManager {
     }
 
     public static synchronized DatabaseManager getInstance() {
+        Log.d(LOG, "getInstance");
         if (instance == null) {
             throw new IllegalStateException(DatabaseManager.class.getSimpleName() +
                     " is not initialized, call initInstance(..) method first.");
@@ -35,6 +37,7 @@ public class DatabaseManager {
     }
 
     public synchronized SQLiteDatabase openDatabase(){
+        Log.d(LOGTAG, "openDatabase");
         mOpenCounter += 1;
         if (mOpenCounter == 1) {
             mDatabase = mDatabaseHelper.getWritableDatabase();
@@ -43,6 +46,7 @@ public class DatabaseManager {
     }
 
     public synchronized void closeDatabase(){
+        Log.d(LOGTAG, "closeDatabase");
         mOpenCounter -= 1;
         if (mOpenCounter == 0){
             mDatabase.close();

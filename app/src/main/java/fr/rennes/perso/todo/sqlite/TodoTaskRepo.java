@@ -5,11 +5,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.rennes.perso.todo.model.TodoList;
 import fr.rennes.perso.todo.model.TodoTask;
 
 /**
@@ -17,7 +15,8 @@ import fr.rennes.perso.todo.model.TodoTask;
  */
 
 public class TodoTaskRepo {
-    private static final String LOGTAG = "TodoTaskRepo";
+    private final String LOGTAG = this.getClass().toString();
+    private static final String LOG = "TodoTaskRepo";
     private TodoTask todoTask;
 
     public TodoTaskRepo(){
@@ -25,7 +24,7 @@ public class TodoTaskRepo {
     }
 
     public static String createTable(){
-        Log.d(LOGTAG, "createTable()");
+        Log.d(LOG, "createTable");
 
         String query = "CREATE TABLE " + TodoTask.TABLE + " ("
                 + TodoTask.COLUMN_TASK_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -37,13 +36,13 @@ public class TodoTaskRepo {
     }
 
     public static String dropTable(){
-        Log.d(LOGTAG, "dropTable()");
+        Log.d(LOG, "dropTable");
         String query = "DROP TABLE IF EXISTS " + TodoTask.TABLE +";";
         return query;
     }
 
     public int insert(TodoTask todoTask){
-        Log.d(LOGTAG, "insert()");
+        Log.d(LOGTAG, "insert");
         int taskId;
 
         SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
@@ -62,13 +61,14 @@ public class TodoTaskRepo {
     }
 
     public void delete(){
-        Log.d(LOGTAG, "delete()");
+        Log.d(LOGTAG, "delete");
         SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
         db.delete(TodoTask.TABLE, null, null);
         DatabaseManager.getInstance().closeDatabase();
     }
 
     public List<TodoTask> selectTasks(int id_list) {
+        Log.d(LOGTAG, "selectTasks");
         List<TodoTask> todoTasks = new ArrayList<>();
         SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
 
@@ -103,6 +103,7 @@ public class TodoTaskRepo {
     }
 
     public TodoTask selectTaskById(int idTask) {
+        Log.d(LOGTAG, "selectTaskById");
         TodoTask task = new TodoTask();
         SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
 
@@ -135,16 +136,8 @@ public class TodoTaskRepo {
     }
 
     public void UpdateStateTask(TodoTask task){
+        Log.d(LOGTAG, "UpdateStateTask");
         SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
-
-        /*
-        ContentValues cv = new ContentValues();
-        String id = TodoTask.COLUMN_TASK_ID + " " + task.getId();
-        cv.put(TodoTask.COLUMN_TASK_STATE, task.getState());
-
-        db.update(TodoTask.TABLE, cv, id, null);
-        */
-
         int state;
         if (task.getState() == true)
         {
@@ -152,7 +145,6 @@ public class TodoTaskRepo {
         } else {
             state = 0;
         }
-
 
         String query = "UPDATE " + TodoTask.TABLE + " SET " + TodoTask.COLUMN_TASK_STATE
                 + "= " + state + " WHERE "
