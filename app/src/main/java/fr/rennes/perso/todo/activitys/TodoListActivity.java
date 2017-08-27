@@ -16,6 +16,7 @@ import fr.rennes.perso.todo.model.TodoList;
 
 public class TodoListActivity extends AppCompatActivity {
     private static final int MY_ACTIVITY_CODE = 0;
+    public final String LOGTAG = this.getClass().toString();
     private ArrayList<TodoList> todoArrayList = new ArrayList<>();
     private ListView lv_todo_todoList;
     private TodoListAdapter todoListAdapter;
@@ -40,7 +41,6 @@ public class TodoListActivity extends AppCompatActivity {
                 TodoListActivity.this.startActivityForResult(intent, 2);
             }
         });
-
 
         btn_addNew_todoList.setOnClickListener(new View.OnClickListener() {
             @Override

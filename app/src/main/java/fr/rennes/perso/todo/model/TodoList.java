@@ -10,9 +10,9 @@ import java.util.Date;
 
 public class TodoList {
     public static final String TABLE = "lists";
-    public static final String COLUMN_LIST_ID = "_id";
+    public static final String COLUMN_LIST_ID = "id";
     public static final String COLUMN_LIST_NAME = "name";
-    public static final String COLUMN_LIST_CDATE = "creatAt";
+    public static final String COLUMN_LIST_CDATE = "creationDate";
 
     private int id;
     private String name;
@@ -27,6 +27,12 @@ public class TodoList {
     }
 
     public TodoList(String name, Date creationDate) {
+        this.name = name;
+        this.creationDate = creationDate;
+    }
+
+    public TodoList(int id, String name, Date creationDate){
+        this.id = id;
         this.name = name;
         this.creationDate = creationDate;
     }

@@ -21,6 +21,8 @@ import java.util.List;
  */
 
 public class TodoListAdapter extends ArrayAdapter<TodoList> {
+    public static final String LOGTAG = "TodoListAdapter";
+
     public TodoListAdapter(@NonNull Context context, @NonNull List<TodoList> objects) {
         super(context,0, objects);
     }

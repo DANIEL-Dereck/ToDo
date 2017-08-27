@@ -6,7 +6,7 @@ package fr.rennes.perso.todo.model;
 
 public class TodoTask {
     public static final String TABLE = "tasks";
-    public static final String COLUMN_TASK_ID = "_id";
+    public static final String COLUMN_TASK_ID = "id";
     public static final String COLUMN_TASK_TASK = "task";
     public static final String COLUMN_TASK_DESC = "description";
     public static final String COLUMN_TASK_STATE = "state";
@@ -21,10 +21,24 @@ public class TodoTask {
     public TodoTask() {
     }
 
+    public TodoTask(String task, String description) {
+        this.task = task;
+        this.description = description;
+        this.state = false;
+    }
+
     public TodoTask(String task, String description, Boolean state) {
         this.task = task;
         this.description = description;
         this.state = state;
+    }
+
+    public TodoTask(int id, String task, String description, Boolean state, int id_list) {
+        this.id = id;
+        this.task = task;
+        this.description = description;
+        this.state = state;
+        this.id_list = id_list;
     }
 
     public int getId() {

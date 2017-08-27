@@ -16,12 +16,22 @@ import fr.rennes.perso.todo.model.TodoList;
  */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
+    private static final String LOGTAG = "DatabaseHelper";
+
     /* DB VALUES */
     private static final String DATABASE_NAME = "todolist.db";
     private static final int DATABASE_VERSION = 1;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    @Override
+    public void onOpen(SQLiteDatabase db){
+        super.onOpen(db);
+        if (!db.isReadOnly()){
+            db.execSQL("PRAGMA foreign_keys=ON;");
+        }
     }
 
     @Override

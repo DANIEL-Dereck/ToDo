@@ -14,6 +14,7 @@ import fr.rennes.perso.todo.model.TodoTask;
 
 public class TaskListActivity extends AppCompatActivity {
     private static final int MY_ACTIVITY_CODE = 2;
+    public final String LOGTAG = this.getClass().toString();
     private ArrayList<TodoTask> taskArrayList = new ArrayList<>();
     private ListView lv_task_taskList;
     private Button btn_addNew_taskList;

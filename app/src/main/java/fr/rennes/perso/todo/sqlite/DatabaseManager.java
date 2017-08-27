@@ -2,12 +2,15 @@ package fr.rennes.perso.todo.sqlite;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by Dereck on 24/08/2017.
  */
 
 public class DatabaseManager {
+    private static final String LOGTAG = "DatabaseManager";
+
     private Integer mOpenCounter = 0;
 
     private  static DatabaseManager instance;
@@ -15,6 +18,7 @@ public class DatabaseManager {
     private SQLiteDatabase mDatabase;
 
     public static synchronized void initInstance(SQLiteOpenHelper helper){
+        Log.d(LOGTAG, "initInstance()");
         if (instance == null)
         {
             instance = new DatabaseManager();
@@ -25,7 +29,7 @@ public class DatabaseManager {
     public static synchronized DatabaseManager getInstance() {
         if (instance == null) {
             throw new IllegalStateException(DatabaseManager.class.getSimpleName() +
-                    " is not initialized, call initializeInstance(..) method first.");
+                    " is not initialized, call initInstance(..) method first.");
         }
         return instance;
     }

@@ -22,6 +22,8 @@ import fr.rennes.perso.todo.model.TodoTask;
  */
 
 public class TodoTaskAdapter extends ArrayAdapter<TodoTask> {
+    public final String LOGTAG = this.getClass().toString();
+
     public TodoTaskAdapter(@NonNull Context context, @NonNull List<TodoTask> objects) {
         super(context, 0, objects);
     }
