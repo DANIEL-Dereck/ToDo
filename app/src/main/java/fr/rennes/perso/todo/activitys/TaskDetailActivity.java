@@ -25,8 +25,8 @@ public class TaskDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_detail);
 
-        //TODO : put with id
-        tTask = tTaskRepo.selectTaskById(0);
+        //TODO : select with ID
+        tTask = tTaskRepo.selectTaskById(1);
 
         tv_name_taskDetail.setText(tTask.getTask());
         tv_desc_taskDetail.setText(tTask.getDescription());
@@ -36,10 +36,7 @@ public class TaskDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 setResult(RESULT_CANCELED);
-                finish();                /*
-                Intent intent = new Intent(TaskDetailActivity.this, TodoListActivity.class);
-                TaskDetailActivity.this.startActivityForResult(intent, 1);
-                */
+                finish();
             }
         });
     }

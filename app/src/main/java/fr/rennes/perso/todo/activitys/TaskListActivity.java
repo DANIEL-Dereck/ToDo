@@ -21,7 +21,7 @@ public class TaskListActivity extends AppCompatActivity {
     private static final int MY_ACTIVITY_CODE = 2;
     public final String LOGTAG = this.getClass().toString();
     private ArrayList<TodoTask> taskArrayList = new ArrayList<>();
-    private TodoTaskRepo todoTaskRepo;
+    private TodoTaskRepo todoTaskRepo = new TodoTaskRepo();
     private TodoTaskAdapter todoTaskAdapter;
 
     private ListView lv_task_taskList;
@@ -61,7 +61,8 @@ public class TaskListActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(TaskListActivity.this, TaskAddActivity.class);
                 Bundle extras = getIntent().getExtras();
-                intent.putExtra("idList", extras.getInt("todoListId"));
+                int idList = extras.getInt("todoListId");
+                intent.putExtra("idList", idList);
                 TaskListActivity.this.startActivityForResult(intent, 3);
             }
         });
@@ -71,11 +72,17 @@ public class TaskListActivity extends AppCompatActivity {
             public void onClick(View v){
                 setResult(RESULT_CANCELED);
                 finish();
-                /*
-                Intent intent = new Intent(TaskListActivity.this, TodoListActivity.class);
-                TaskListActivity.this.startActivityForResult(intent, 1);
-                */
             }
         });
     }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK){
+            taskArrayList = (ArrayList)todoTaskRepo.selectTaskById();
+            todoTaskAdapter = new TodoTaskAdapter(this, taskArrayList);
+            todoTaskAdapter.notifyDataSetChanged();
+        }
+    }
+
 }

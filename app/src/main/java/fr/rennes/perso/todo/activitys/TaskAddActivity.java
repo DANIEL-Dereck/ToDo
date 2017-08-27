@@ -56,8 +56,8 @@ public class TaskAddActivity extends AppCompatActivity {
                 );
                 tTaskRepo.insert(tTask);
 
-                Intent intent = new Intent(TaskAddActivity.this, TaskListActivity.class);
-                TaskAddActivity.this.startActivityForResult(intent, 2);
+                setResult(RESULT_OK);
+                finish();
             }
         });
     }

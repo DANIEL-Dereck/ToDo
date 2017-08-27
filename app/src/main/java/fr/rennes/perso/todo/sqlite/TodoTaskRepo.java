@@ -32,7 +32,7 @@ public class TodoTaskRepo {
                 + TodoTask.COLUMN_TASK_TASK + " TEXT, "
                 + TodoTask.COLUMN_TASK_DESC + " TEXT,"
                 + TodoTask.COLUMN_TASK_STATE + " TEXT,"
-                + TodoTask.COLUMN_TASK_FK_LIST + "INTEGER); ";
+                + TodoTask.COLUMN_TASK_FK_LIST + " INTEGER ); ";
 /*
         String query = "CREATE TABLE " + TodoTask.TABLE + " ("
                 + TodoTask.COLUMN_TASK_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "

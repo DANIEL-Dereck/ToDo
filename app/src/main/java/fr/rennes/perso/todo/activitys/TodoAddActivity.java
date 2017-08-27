@@ -31,10 +31,6 @@ public class TodoAddActivity extends AppCompatActivity {
             public void onClick(View v){
                 setResult(RESULT_CANCELED);
                 finish();
-                /*
-                Intent intent = new Intent(TodoAddActivity.this, TodoListActivity.class);
-                TodoAddActivity.this.startActivityForResult(intent, 1);
-                */
             }
         });
 
@@ -46,8 +42,16 @@ public class TodoAddActivity extends AppCompatActivity {
                 TodoListRepo tListRepo = new TodoListRepo();
                 TodoList tList = new TodoList(et_name_todoAdd.getText().toString());
                 tListRepo.insert(tList);
+
+
+
+                setResult(RESULT_OK);
+                finish();
+
+                /*
                 Intent intent = new Intent(TodoAddActivity.this, TodoListActivity.class);
                 TodoAddActivity.this.startActivityForResult(intent, 1);
+                */
             }
         });
     }
