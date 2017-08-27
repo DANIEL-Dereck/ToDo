@@ -62,12 +62,13 @@ public class TodoListActivity extends AppCompatActivity {
 
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK){
-
+            TodoListRepo todoListRepo = new TodoListRepo();
             todoArrayList = (ArrayList)todoListRepo.selectList();
             todoListAdapter = new TodoListAdapter(this, todoArrayList);
             todoListAdapter.notifyDataSetChanged();
+            lv_todo_todoList.setAdapter(todoListAdapter);
         }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

@@ -42,8 +42,9 @@ public class TaskListActivity extends AppCompatActivity {
 
         taskArrayList = (ArrayList)todoTaskRepo.selectTasks(idList);
         todoTaskAdapter = new TodoTaskAdapter(this, taskArrayList);
-        lv_task_taskList.setAdapter(todoTaskAdapter);
+        todoTaskAdapter.notifyDataSetChanged();
 
+        lv_task_taskList.setAdapter(todoTaskAdapter);
 
         lv_task_taskList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -77,12 +78,17 @@ public class TaskListActivity extends AppCompatActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK){
-            taskArrayList = (ArrayList)todoTaskRepo.selectTaskById();
+            Bundle extras = getIntent().getExtras();
+            int idList = extras.getInt("todoListId");
+            TodoTaskRepo todoTaskRepo = new TodoTaskRepo();
+
+            taskArrayList = (ArrayList)todoTaskRepo.selectTasks(idList);
             todoTaskAdapter = new TodoTaskAdapter(this, taskArrayList);
             todoTaskAdapter.notifyDataSetChanged();
+            lv_task_taskList.setAdapter(todoTaskAdapter);
         }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
 }
