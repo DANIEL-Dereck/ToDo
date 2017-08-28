@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import fr.rennes.perso.todo.R;
 import fr.rennes.perso.todo.adapter.TodoTaskAdapter;
 import fr.rennes.perso.todo.model.TodoTask;
+import fr.rennes.perso.todo.sqlite.TodoListRepo;
 import fr.rennes.perso.todo.sqlite.TodoTaskRepo;
 
 public class TaskListActivity extends AppCompatActivity {
@@ -28,6 +29,7 @@ public class TaskListActivity extends AppCompatActivity {
     private ListView lv_task_taskList;
     private Button btn_addNew_taskList;
     private Button btn_back_taskList;
+    private Button btn_del_taskList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class TaskListActivity extends AppCompatActivity {
 
         btn_back_taskList = (Button) findViewById(R.id.btn_back_taskList);
         btn_addNew_taskList = (Button) findViewById(R.id.btn_addNew_taskList);
+        btn_del_taskList = (Button) findViewById(R.id.btn_del_taskList);
         lv_task_taskList = (ListView) findViewById(R.id.lv_task_taskList);
         cb_taskList_item_cb = (CheckBox) findViewById(R.id.cb_taskList_item_cb);
 
@@ -48,7 +51,18 @@ public class TaskListActivity extends AppCompatActivity {
         todoTaskAdapter.notifyDataSetChanged();
         lv_task_taskList.setAdapter(todoTaskAdapter);
 
+        btn_del_taskList.setOnClickListener(new View.OnClickListener(){
 
+            @Override
+            public void onClick(View view) {
+                Bundle extras = getIntent().getExtras();
+                int idList = extras.getInt("todoListId");
+                TodoListRepo todoListRepo = new TodoListRepo();
+                todoListRepo.deleteListById(idList);
+                setResult(RESULT_OK);
+                finish();
+            }
+        });
 
 
         lv_task_taskList.setOnItemClickListener(new AdapterView.OnItemClickListener() {

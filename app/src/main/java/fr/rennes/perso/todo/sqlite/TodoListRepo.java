@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Locale;
 
 import fr.rennes.perso.todo.model.TodoList;
+import fr.rennes.perso.todo.model.TodoTask;
 
 /**
  * Created by Dereck on 24/08/2017.
@@ -104,5 +105,41 @@ public class TodoListRepo {
                 "yyyy-MM-dd", Locale.getDefault());
         Date date = new Date();
         return dateFormat.format(date);
+    }
+
+    public void deleteList(TodoList todoList){
+        Log.d(LOGTAG, "deleteList");
+        SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
+        TodoTaskRepo repoTask = new TodoTaskRepo();
+        ArrayList<TodoTask> taskLists = new ArrayList<>();
+        taskLists = (ArrayList) repoTask.selectTasks(todoList.getId());
+
+        for (TodoTask task : taskLists)
+        {
+            repoTask.deleteTask(task.getId());
+        }
+
+        String query = "DELETE FROM " + TodoList.TABLE + " WHERE " + TodoList.COLUMN_LIST_ID + " = " + todoList.getId() + ";";
+        db.execSQL(query);
+
+        DatabaseManager.getInstance().closeDatabase();
+    }
+
+    public void deleteListById(int listId){
+        Log.d(LOGTAG, "deleteList");
+        SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
+        TodoTaskRepo repoTask = new TodoTaskRepo();
+        ArrayList<TodoTask> taskLists = new ArrayList<>();
+        taskLists = (ArrayList) repoTask.selectTasks(todoList.getId());
+
+        for (TodoTask task : taskLists)
+        {
+            repoTask.deleteTask(task.getId());
+        }
+
+        String query = "DELETE FROM " + TodoList.TABLE + " WHERE " + TodoList.COLUMN_LIST_ID + " = " + listId + ";";
+        db.execSQL(query);
+
+        DatabaseManager.getInstance().closeDatabase();
     }
 }

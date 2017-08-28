@@ -15,6 +15,7 @@ public class TaskDetailActivity extends AppCompatActivity {
     public final String LOGTAG = this.getClass().toString();
     private static final int MY_ACTIVITY_CODE = 4;
     private Button btn_back_taskDetail;
+    private Button btn_del_taskDetail;
     private TextView tv_name_taskDetail;
     private TextView tv_desc_taskDetail;
     private TodoTaskRepo tTaskRepo = new TodoTaskRepo();
@@ -34,6 +35,19 @@ public class TaskDetailActivity extends AppCompatActivity {
 
         tv_name_taskDetail = (TextView) findViewById(R.id.tv_name_taskDetail);
         tv_desc_taskDetail = (TextView) findViewById(R.id.tv_desc_taskDetail);
+        btn_del_taskDetail = (Button) findViewById(R.id.btn_del_taskDetail);
+        btn_del_taskDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle extras = getIntent().getExtras();
+                int taskId = extras.getInt("todoTaskId");
+                TodoTaskRepo todoTaskRepo = new TodoTaskRepo();
+                todoTaskRepo.deleteTask(taskId);
+                setResult(RESULT_OK);
+                finish();
+            }
+        });
+
 
         tv_name_taskDetail.setText(tTask.getTask());
         tv_desc_taskDetail.setText(tTask.getDescription());

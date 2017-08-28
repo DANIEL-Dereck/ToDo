@@ -30,6 +30,12 @@
         android:layout_height="wrap_content" />
 
     <Button
+        android:id="@+id/btn_del_taskDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/task_supp" />
+
+    <Button
         android:id="@+id/btn_back_taskDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

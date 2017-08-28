@@ -3,19 +3,18 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_taskList_item_name"
-        android:layout_width="345dp"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:text="TextView" />
+        <TextView
+            android:id="@+id/tv_taskList_item_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-    <CheckBox
-        android:id="@+id/cb_taskList_item_cb"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="false"
-        />
+        <CheckBox
+            android:id="@+id/cb_taskList_item_cb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false" />
 
 </LinearLayout>

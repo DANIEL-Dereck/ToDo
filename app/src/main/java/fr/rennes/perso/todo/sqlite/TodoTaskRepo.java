@@ -162,4 +162,25 @@ public class TodoTaskRepo {
 
         DatabaseManager.getInstance().closeDatabase();
     }
+
+    public void deleteTask(int taskId)
+    {
+        Log.d(LOGTAG, "deleteTask");
+        SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
+        String query = "DELETE FROM " + TodoTask.TABLE + " WHERE " + TodoTask.COLUMN_TASK_ID + " = " + taskId + ";";
+        db.execSQL(query);
+        DatabaseManager.getInstance().closeDatabase();
+    }
+
+    public void deleteTaskByListId(int listId)
+    {
+        Log.d(LOGTAG, "deleteTask");
+        SQLiteDatabase db = DatabaseManager.getInstance().openDatabase();
+        String query = "DELETE FROM " + TodoTask.TABLE + " WHERE " + TodoTask.COLUMN_TASK_FK_LIST + " = " + listId + ";";
+        db.execSQL(query);
+        DatabaseManager.getInstance().closeDatabase();
+    }
+
+
+
 }

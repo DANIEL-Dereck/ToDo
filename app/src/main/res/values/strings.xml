@@ -8,10 +8,12 @@
     <string name="task_name">Task name</string>
     <string name="task_description">Description</string>
     <string name="task_state">State</string>
-    <string name="task_add">Add Task</string>
+    <string name="task_add">Add task</string>
+    <string name="task_supp">Delete task</string>
 
     <!-- List values -->
     <string name="list_name">List name</string>
     <string name="list_creation">Creation date</string>
-    <string name="list_add">Add List</string>
+    <string name="list_add">Add list</string>
+    <string name="list_supp">Delete list</string>
 </resources>

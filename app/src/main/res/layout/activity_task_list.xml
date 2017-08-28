@@ -14,6 +14,12 @@
         android:text="@string/task_add"/>
 
     <Button
+        android:id="@+id/btn_del_taskList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/list_supp"/>
+
+    <Button
         android:id="@+id/btn_back_taskList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
