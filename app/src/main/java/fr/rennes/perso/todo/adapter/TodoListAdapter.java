@@ -36,15 +36,13 @@ public class TodoListAdapter extends ArrayAdapter<TodoList> {
 
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.todo_list_item, parent, false);
-
         }
 
-        TextView tv_todoList_item_name = (TextView) convertView.findViewById(R.id.tv_todoList_item_name);
-        TextView tv_todoList_item_cDate = (TextView) convertView.findViewById(R.id.tv_todoList_item_cDate);
+        TextView tv_todoList_item_name = convertView.findViewById(R.id.tv_todoList_item_name);
+        TextView tv_todoList_item_cDate = convertView.findViewById(R.id.tv_todoList_item_cDate);
 
         DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(this.getContext());
         String dateFormated = dateFormat.format(todoList.getCreationDate());
-
 
         tv_todoList_item_cDate.setText(dateFormated);
         tv_todoList_item_name.setText(todoList.getName());

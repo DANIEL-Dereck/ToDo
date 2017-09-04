@@ -41,8 +41,8 @@ public class TodoTaskAdapter extends ArrayAdapter<TodoTask> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.task_list_item, parent, false);
         }
 
-        TextView tv_taskList_item_name = (TextView) convertView.findViewById(R.id.tv_taskList_item_name);
-        final CheckBox cb_taskList_item_cb = (CheckBox) convertView.findViewById(R.id.cb_taskList_item_cb);
+        TextView tv_taskList_item_name = convertView.findViewById(R.id.tv_taskList_item_name);
+        final CheckBox cb_taskList_item_cb = convertView.findViewById(R.id.cb_taskList_item_cb);
 
         tv_taskList_item_name.setText(todoTask.getTask());
         cb_taskList_item_cb.setChecked(todoTask.getState());

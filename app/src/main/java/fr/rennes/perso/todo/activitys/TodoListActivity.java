@@ -40,7 +40,6 @@ public class TodoListActivity extends AppCompatActivity {
         todoListAdapter = new TodoListAdapter(this, todoArrayList);
         lv_todo_todoList.setAdapter(todoListAdapter);
 
-
         lv_todo_todoList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

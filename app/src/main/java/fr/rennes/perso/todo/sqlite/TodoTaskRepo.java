@@ -80,7 +80,7 @@ public class TodoTaskRepo {
         if (cursor.moveToFirst()) {
             do {
                 boolean state;
-                if (cursor.getInt(cursor.getColumnIndex(TodoTask.COLUMN_TASK_STATE)) == 1)
+                if (cursor.getInt(cursor.getColumnIndex(TodoTask.COLUMN_TASK_STATE)) == TodoTask.TRUE)
                 {
                   state = true;
                 } else {
@@ -115,7 +115,7 @@ public class TodoTaskRepo {
         if (cursor.moveToFirst()) {
             do {
                 boolean state;
-                if (cursor.getInt(cursor.getColumnIndex(TodoTask.COLUMN_TASK_STATE)) == 1)
+                if (cursor.getInt(cursor.getColumnIndex(TodoTask.COLUMN_TASK_STATE)) == TodoTask.TRUE)
                 {
                     state = true;
                 } else {
@@ -141,9 +141,9 @@ public class TodoTaskRepo {
         int state;
         if (task.getState() == true)
         {
-            state = 1;
+            state = TodoTask.TRUE;
         } else {
-            state = 0;
+            state = TodoTask.FALSE;
         }
 
         String query = "UPDATE " + TodoTask.TABLE + " SET " + TodoTask.COLUMN_TASK_STATE

@@ -25,8 +25,9 @@ public class TodoAddActivity extends AppCompatActivity {
         setContentView(R.layout.activity_todo_add);
 
         et_name_todoAdd = (EditText) findViewById(R.id.et_name_todoAdd);
-
+        btn_add_todoAdd = (Button) findViewById(R.id.btn_add_todoAdd);
         btn_back_todoAdd = (Button) findViewById(R.id.btn_back_todoAdd);
+
         btn_back_todoAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -35,7 +36,6 @@ public class TodoAddActivity extends AppCompatActivity {
             }
         });
 
-        btn_add_todoAdd = (Button) findViewById(R.id.btn_add_todoAdd);
         btn_add_todoAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
