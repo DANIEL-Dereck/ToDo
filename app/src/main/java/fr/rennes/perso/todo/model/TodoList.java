@@ -7,15 +7,18 @@ import java.util.Date;
  */
 
 public class TodoList {
+    /** TodoList table information */
     public static final String TABLE = "lists";
     public static final String COLUMN_LIST_ID = "id";
     public static final String COLUMN_LIST_NAME = "name";
     public static final String COLUMN_LIST_CDATE = "creationDate";
 
+    /** TodoList values */
     private int id;
     private String name;
     private Date creationDate;
 
+    /** Constructor */
     public TodoList() {
     }
 
@@ -35,6 +38,7 @@ public class TodoList {
         this.creationDate = creationDate;
     }
 
+    /** Getter & Setter */
     public int getId() {
         return id;
     }

@@ -5,6 +5,7 @@ package fr.rennes.perso.todo.model;
  */
 
 public class TodoTask {
+    /** TodoTask table information */
     public static final String TABLE = "tasks";
     public static final String COLUMN_TASK_ID = "id";
     public static final String COLUMN_TASK_TASK = "task";
@@ -12,15 +13,19 @@ public class TodoTask {
     public static final String COLUMN_TASK_STATE = "state";
     public static final String COLUMN_TASK_FK_LIST = "id_list";
 
+    /** Other values */
+    // Use to replace the type Boolean on the database
     public static final int TRUE = 1;
     public static final int FALSE = 0;
 
+    /** TodoTask values */
     private int id;
     private String task;
     private String description;
     private Boolean state;
     private int id_list;
 
+    /** Constructor */
     public TodoTask() {
     }
 
@@ -51,6 +56,7 @@ public class TodoTask {
         this.id_list = id_list;
     }
 
+    /** Getter & Setter */
     public int getId() {
         return id;
     }

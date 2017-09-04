@@ -12,8 +12,11 @@ import fr.rennes.perso.todo.model.TodoList;
 import fr.rennes.perso.todo.sqlite.TodoListRepo;
 
 public class TodoAddActivity extends AppCompatActivity {
-    private static final int MY_ACTIVITY_CODE = 1;
+    /** Activity final values */
+    public static final int MY_ACTIVITY_CODE = 1;
     public final String LOGTAG = this.getClass().toString();
+
+    /** Activity component */
     private Button btn_add_todoAdd;
     private Button btn_back_todoAdd;
     private EditText et_name_todoAdd;

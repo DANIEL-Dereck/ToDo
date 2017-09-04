@@ -17,14 +17,18 @@ import fr.rennes.perso.todo.model.TodoList;
 import fr.rennes.perso.todo.sqlite.TodoListRepo;
 
 public class TodoListActivity extends AppCompatActivity {
-    private static final int MY_ACTIVITY_CODE = 0;
+    /** Activity final values */
+    public static final int MY_ACTIVITY_CODE = 0;
     public final String LOGTAG = this.getClass().toString();
-    private ArrayList<TodoList> todoArrayList = new ArrayList<>();
-    private TodoListRepo todoListRepo = new TodoListRepo();
 
+    /** Activity component */
     private ListView lv_todo_todoList;
     private TodoListAdapter todoListAdapter;
     private Button btn_addNew_todoList;
+
+    /** Activity values */
+    private ArrayList<TodoList> todoArrayList = new ArrayList<>();
+    private TodoListRepo todoListRepo = new TodoListRepo();
 
 
     @Override
@@ -47,7 +51,7 @@ public class TodoListActivity extends AppCompatActivity {
                 TodoList tList = todoArrayList.get(position);
                 intent.putExtra("todoListId", tList.getId());
                 intent.putExtra("position", position);
-                TodoListActivity.this.startActivityForResult(intent, 2);
+                TodoListActivity.this.startActivityForResult(intent, TaskListActivity.MY_ACTIVITY_CODE);
             }
         });
 
@@ -55,7 +59,7 @@ public class TodoListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(TodoListActivity.this, TodoAddActivity.class);
-                TodoListActivity.this.startActivityForResult(intent, 1);
+                TodoListActivity.this.startActivityForResult(intent, TodoAddActivity.MY_ACTIVITY_CODE);
             }
         });
     }

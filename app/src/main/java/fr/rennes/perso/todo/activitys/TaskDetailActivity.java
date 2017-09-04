@@ -11,16 +11,21 @@ import fr.rennes.perso.todo.R;
 import fr.rennes.perso.todo.model.TodoTask;
 import fr.rennes.perso.todo.sqlite.TodoTaskRepo;
 
-/*
+/**
 * On this activity we list all the task
 */
 public class TaskDetailActivity extends AppCompatActivity {
+    /** Activity final values */
+    public static final int MY_ACTIVITY_CODE = 4;
     public final String LOGTAG = this.getClass().toString();
-    private static final int MY_ACTIVITY_CODE = 4;
+
+    /** Activity component */
     private Button btn_back_taskDetail;
     private Button btn_del_taskDetail;
     private TextView tv_name_taskDetail;
     private TextView tv_desc_taskDetail;
+
+    /** Activity values */
     private TodoTaskRepo tTaskRepo = new TodoTaskRepo();
     private TodoTask tTask;
 

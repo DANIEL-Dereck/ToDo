@@ -22,7 +22,10 @@ import fr.rennes.perso.todo.sqlite.TodoTaskRepo;
  */
 
 public class TodoTaskAdapter extends ArrayAdapter<TodoTask> {
+    /** Adapter final values */
     public final String LOGTAG = this.getClass().toString();
+
+    /** Adapter values */
     private int pos;
 
     public TodoTaskAdapter(@NonNull Context context, @NonNull List<TodoTask> objects) {

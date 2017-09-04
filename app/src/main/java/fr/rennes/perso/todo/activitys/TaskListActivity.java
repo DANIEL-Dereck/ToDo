@@ -19,17 +19,22 @@ import fr.rennes.perso.todo.sqlite.TodoListRepo;
 import fr.rennes.perso.todo.sqlite.TodoTaskRepo;
 
 public class TaskListActivity extends AppCompatActivity {
-    private static final int MY_ACTIVITY_CODE = 2;
+    /** Activity final values */
+    public static final int MY_ACTIVITY_CODE = 2;
     public final String LOGTAG = this.getClass().toString();
-    private ArrayList<TodoTask> taskArrayList = new ArrayList<>();
-    private TodoTaskRepo todoTaskRepo = new TodoTaskRepo();
-    private TodoTaskAdapter todoTaskAdapter;
 
+    /** Activity component */
     private CheckBox cb_taskList_item_cb;
     private ListView lv_task_taskList;
     private Button btn_addNew_taskList;
     private Button btn_back_taskList;
     private Button btn_del_taskList;
+
+    /** Activity values */
+    private ArrayList<TodoTask> taskArrayList = new ArrayList<>();
+    private TodoTaskRepo todoTaskRepo = new TodoTaskRepo();
+    private TodoTaskAdapter todoTaskAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +77,7 @@ public class TaskListActivity extends AppCompatActivity {
                 TodoTask tTask = taskArrayList.get(position);
                 intent.putExtra("todoTaskId", tTask.getId());
                 intent.putExtra("position", position);
-                TaskListActivity.this.startActivityForResult(intent, 4);
+                TaskListActivity.this.startActivityForResult(intent, TaskDetailActivity.MY_ACTIVITY_CODE);
             }
         });
 
@@ -83,7 +88,7 @@ public class TaskListActivity extends AppCompatActivity {
                 Bundle extras = getIntent().getExtras();
                 int idList = extras.getInt("todoListId");
                 intent.putExtra("idList", idList);
-                TaskListActivity.this.startActivityForResult(intent, 3);
+                TaskListActivity.this.startActivityForResult(intent, TaskAddActivity.MY_ACTIVITY_CODE);
             }
         });
 
