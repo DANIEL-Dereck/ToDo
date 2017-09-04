@@ -114,13 +114,6 @@ public class TodoTaskRepo {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                boolean state;
-                if (cursor.getInt(cursor.getColumnIndex(TodoTask.COLUMN_TASK_STATE)) == TodoTask.TRUE)
-                {
-                    state = true;
-                } else {
-                    state = false;
-                }
                 task = new TodoTask(
                         cursor.getInt(cursor.getColumnIndex(TodoTask.COLUMN_TASK_ID)),
                         cursor.getString(cursor.getColumnIndex(TodoTask.COLUMN_TASK_TASK)),

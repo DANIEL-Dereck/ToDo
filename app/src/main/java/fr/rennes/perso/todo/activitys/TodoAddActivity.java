@@ -27,10 +27,12 @@ public class TodoAddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo_add);
 
+        /** component initialisation */
         et_name_todoAdd = (EditText) findViewById(R.id.et_name_todoAdd);
         btn_add_todoAdd = (Button) findViewById(R.id.btn_add_todoAdd);
         btn_back_todoAdd = (Button) findViewById(R.id.btn_back_todoAdd);
 
+        /** Event */
         btn_back_todoAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){

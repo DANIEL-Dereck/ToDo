@@ -24,6 +24,7 @@ public class TodoListAdapter extends ArrayAdapter<TodoList> {
     /** Adapter final values */
     public final String LOGTAG = this.getClass().toString();
 
+    /** Constructor */
     public TodoListAdapter(@NonNull Context context, @NonNull List<TodoList> objects) {
         super(context,0, objects);
     }

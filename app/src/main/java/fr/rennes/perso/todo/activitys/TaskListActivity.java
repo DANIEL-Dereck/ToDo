@@ -45,17 +45,20 @@ public class TaskListActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         int idList = extras.getInt("todoListId");
 
+        /** component initialisation */
         btn_back_taskList = (Button) findViewById(R.id.btn_back_taskList);
         btn_addNew_taskList = (Button) findViewById(R.id.btn_addNew_taskList);
         btn_del_taskList = (Button) findViewById(R.id.btn_del_taskList);
         lv_task_taskList = (ListView) findViewById(R.id.lv_task_taskList);
         cb_taskList_item_cb = (CheckBox) findViewById(R.id.cb_taskList_item_cb);
 
+        /** values initialisation */
         taskArrayList = (ArrayList)todoTaskRepo.selectTasks(idList);
         todoTaskAdapter = new TodoTaskAdapter(this, taskArrayList);
         todoTaskAdapter.notifyDataSetChanged();
         lv_task_taskList.setAdapter(todoTaskAdapter);
 
+        /** Event */
         btn_del_taskList.setOnClickListener(new View.OnClickListener(){
 
             @Override

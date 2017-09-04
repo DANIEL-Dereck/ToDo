@@ -36,18 +36,22 @@ public class TaskDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_detail);
 
+        /** Get todoTaskId on database */
         Bundle extras = getIntent().getExtras();
         int taskId = extras.getInt("todoTaskId");
-
         tTask = tTaskRepo.selectTaskById(taskId);
 
+        /** component initialisation */
         btn_del_taskDetail = (Button) findViewById(R.id.btn_del_taskDetail);
         btn_back_taskDetail = (Button) findViewById(R.id.btn_back_taskDetail);
-
         tv_name_taskDetail = (TextView) findViewById(R.id.tv_name_taskDetail);
         tv_desc_taskDetail = (TextView) findViewById(R.id.tv_desc_taskDetail);
 
+        /** get detail */
+        tv_name_taskDetail.setText(tTask.getTask());
+        tv_desc_taskDetail.setText(tTask.getDescription());
 
+        /** Event */
         btn_del_taskDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,9 +63,6 @@ public class TaskDetailActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-        tv_name_taskDetail.setText(tTask.getTask());
-        tv_desc_taskDetail.setText(tTask.getDescription());
 
         btn_back_taskDetail.setOnClickListener(new View.OnClickListener() {
             @Override

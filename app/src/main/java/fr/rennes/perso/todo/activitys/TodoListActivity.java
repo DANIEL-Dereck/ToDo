@@ -37,13 +37,16 @@ public class TodoListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo_list);
 
+        /** component initialisation */
         btn_addNew_todoList = (Button) findViewById(R.id.btn_addNew_todoList);
         lv_todo_todoList = (ListView) findViewById(R.id.lv_todo_todoList);
 
+        /** values initialisation */
         todoArrayList = (ArrayList)todoListRepo.selectList();
         todoListAdapter = new TodoListAdapter(this, todoArrayList);
         lv_todo_todoList.setAdapter(todoListAdapter);
 
+        /** Event */
         lv_todo_todoList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

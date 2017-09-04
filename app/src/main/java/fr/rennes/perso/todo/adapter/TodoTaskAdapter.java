@@ -28,6 +28,7 @@ public class TodoTaskAdapter extends ArrayAdapter<TodoTask> {
     /** Adapter values */
     private int pos;
 
+    /** constructor */
     public TodoTaskAdapter(@NonNull Context context, @NonNull List<TodoTask> objects) {
         super(context, 0, objects);
     }

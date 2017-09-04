@@ -67,7 +67,6 @@ public class TodoListRepo {
 
         String query = "SELECT * FROM " + TodoList.TABLE + ";";
 
-
         Cursor cursor = db.rawQuery(query, null);
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {

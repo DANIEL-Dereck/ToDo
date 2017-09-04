@@ -31,15 +31,15 @@ public class TaskAddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_add);
 
-        /** button initialisation */
+        /** component initialisation */
         btn_back_taskAdd = (Button) findViewById(R.id.btn_back_taskAdd);
         btn_add_taskAdd = (Button) findViewById(R.id.btn_add_taskAdd);
-
-        /** EditText initialisation */
         et_name_taskAdd = (EditText) findViewById(R.id.et_name_taskAdd);
         et_desc_taskAdd = (EditText) findViewById(R.id.et_desc_taskAdd);
 
-        /** On the click on this button back,
+        /** Event */
+
+        /* On the click on this button back,
          we cancel all the modification and
          we return on the TaskListActivity*/
         btn_back_taskAdd.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +50,7 @@ public class TaskAddActivity extends AppCompatActivity {
             }
         });
 
-        /** On the click on this button,
+        /* On the click on this button,
          we add the task on the database and
          we return on the TaskListActivity*/
         btn_add_taskAdd.setOnClickListener(new View.OnClickListener() {
