@@ -15,7 +15,7 @@ import java.util.List;
 
 import fr.rennes.perso.todo.R;
 import fr.rennes.perso.todo.model.TodoTask;
-import fr.rennes.perso.todo.sqlite.TodoTaskRepo;
+import fr.rennes.perso.todo.database.repository.OldTodoTaskRepo;
 
 /**
  * Created by Dereck on 22/08/2017.
@@ -48,17 +48,17 @@ public class TodoTaskAdapter extends ArrayAdapter<TodoTask> {
         TextView tv_taskList_item_name = convertView.findViewById(R.id.tv_taskList_item_name);
         final CheckBox cb_taskList_item_cb = convertView.findViewById(R.id.cb_taskList_item_cb);
 
-        tv_taskList_item_name.setText(todoTask.getTask());
+//        tv_taskList_item_name.setText(todoTask.getTask());
         cb_taskList_item_cb.setChecked(todoTask.getState());
 
         cb_taskList_item_cb.setTag(todoTask);
         cb_taskList_item_cb.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                TodoTaskRepo todoTaskRepo = new TodoTaskRepo();
+                OldTodoTaskRepo oldTodoTaskRepo = new OldTodoTaskRepo();
                 TodoTask tTask = (TodoTask)view.getTag();
                 tTask.setState(cb_taskList_item_cb.isChecked());
-                todoTaskRepo.UpdateStateTask(tTask);
+                oldTodoTaskRepo.UpdateStateTask(tTask);
             }
         });
 

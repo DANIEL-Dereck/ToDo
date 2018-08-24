@@ -1,4 +1,4 @@
-package fr.rennes.perso.todo.activitys;
+package fr.rennes.perso.todo.view.activitys;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import fr.rennes.perso.todo.R;
 import fr.rennes.perso.todo.adapter.TodoListAdapter;
 import fr.rennes.perso.todo.model.TodoList;
-import fr.rennes.perso.todo.sqlite.TodoListRepo;
+import fr.rennes.perso.todo.database.repository.OldTodoListRepo;
 
 public class TodoListActivity extends AppCompatActivity {
     /** Activity final values */
@@ -28,7 +28,7 @@ public class TodoListActivity extends AppCompatActivity {
 
     /** Activity values */
     private ArrayList<TodoList> todoArrayList = new ArrayList<>();
-    private TodoListRepo todoListRepo = new TodoListRepo();
+    private OldTodoListRepo oldTodoListRepo = new OldTodoListRepo();
 
 
     @Override
@@ -42,7 +42,7 @@ public class TodoListActivity extends AppCompatActivity {
         lv_todo_todoList = (ListView) findViewById(R.id.lv_todo_todoList);
 
         /** values initialisation */
-        todoArrayList = (ArrayList)todoListRepo.selectList();
+        todoArrayList = (ArrayList) oldTodoListRepo.selectList();
         todoListAdapter = new TodoListAdapter(this, todoArrayList);
         lv_todo_todoList.setAdapter(todoListAdapter);
 
@@ -71,8 +71,8 @@ public class TodoListActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.d(LOGTAG, "onActivityResult");
         if(resultCode == RESULT_OK){
-            TodoListRepo todoListRepo = new TodoListRepo();
-            todoArrayList = (ArrayList)todoListRepo.selectList();
+            OldTodoListRepo oldTodoListRepo = new OldTodoListRepo();
+            todoArrayList = (ArrayList) oldTodoListRepo.selectList();
             todoListAdapter = new TodoListAdapter(this, todoArrayList);
             todoListAdapter.notifyDataSetChanged();
             lv_todo_todoList.setAdapter(todoListAdapter);

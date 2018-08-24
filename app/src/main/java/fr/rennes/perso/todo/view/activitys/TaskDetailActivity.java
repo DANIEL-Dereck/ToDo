@@ -1,4 +1,4 @@
-package fr.rennes.perso.todo.activitys;
+package fr.rennes.perso.todo.view.activitys;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import fr.rennes.perso.todo.R;
 import fr.rennes.perso.todo.model.TodoTask;
-import fr.rennes.perso.todo.sqlite.TodoTaskRepo;
+import fr.rennes.perso.todo.database.repository.OldTodoTaskRepo;
 
 /**
 * On this activity we list all the task
@@ -26,7 +26,7 @@ public class TaskDetailActivity extends AppCompatActivity {
     private TextView tv_desc_taskDetail;
 
     /** Activity values */
-    private TodoTaskRepo tTaskRepo = new TodoTaskRepo();
+    private OldTodoTaskRepo tTaskRepo = new OldTodoTaskRepo();
     private TodoTask tTask;
 
     @Override
@@ -48,7 +48,7 @@ public class TaskDetailActivity extends AppCompatActivity {
         tv_desc_taskDetail = (TextView) findViewById(R.id.tv_desc_taskDetail);
 
         /** get detail */
-        tv_name_taskDetail.setText(tTask.getTask());
+//        tv_name_taskDetail.setText(tTask.getTask());
         tv_desc_taskDetail.setText(tTask.getDescription());
 
         /** Event */
@@ -57,8 +57,8 @@ public class TaskDetailActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Bundle extras = getIntent().getExtras();
                 int taskId = extras.getInt("todoTaskId");
-                TodoTaskRepo todoTaskRepo = new TodoTaskRepo();
-                todoTaskRepo.deleteTask(taskId);
+                OldTodoTaskRepo oldTodoTaskRepo = new OldTodoTaskRepo();
+                oldTodoTaskRepo.deleteTask(taskId);
                 setResult(RESULT_OK);
                 finish();
             }

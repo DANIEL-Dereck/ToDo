@@ -1,4 +1,4 @@
-package fr.rennes.perso.todo.activitys;
+package fr.rennes.perso.todo.view.activitys;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 import fr.rennes.perso.todo.R;
 import fr.rennes.perso.todo.model.TodoList;
-import fr.rennes.perso.todo.sqlite.TodoListRepo;
+import fr.rennes.perso.todo.database.repository.OldTodoListRepo;
 
 public class TodoAddActivity extends AppCompatActivity {
     /** Activity final values */
@@ -45,7 +45,7 @@ public class TodoAddActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
 
-                TodoListRepo tListRepo = new TodoListRepo();
+                OldTodoListRepo tListRepo = new OldTodoListRepo();
                 TodoList tList = new TodoList(et_name_todoAdd.getText().toString());
                 tListRepo.insert(tList);
 

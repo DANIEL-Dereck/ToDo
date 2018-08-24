@@ -44,9 +44,9 @@ public class TodoListAdapter extends ArrayAdapter<TodoList> {
         TextView tv_todoList_item_cDate = convertView.findViewById(R.id.tv_todoList_item_cDate);
 
         DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(this.getContext());
-        String dateFormated = dateFormat.format(todoList.getCreationDate());
+//        String dateFormated = dateFormat.format(todoList.getCreationDate());
 
-        tv_todoList_item_cDate.setText(dateFormated);
+//        tv_todoList_item_cDate.setText(dateFormated);
         tv_todoList_item_name.setText(todoList.getName());
 
         return convertView;

@@ -3,24 +3,24 @@
     package="fr.rennes.perso.todo">
 
     <application
-        android:name=".sqlite.App"
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activitys.TodoListActivity">
+        <activity android:name=".view.activitys.TodoListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activitys.TaskListActivity" />
-        <activity android:name=".activitys.TodoAddActivity" />
-        <activity android:name=".activitys.TaskAddActivity" />
-        <activity android:name=".activitys.TaskDetailActivity" />
+        <activity android:name=".view.activitys.TaskListActivity" />
+        <activity android:name=".view.activitys.TodoAddActivity" />
+        <activity android:name=".view.activitys.TaskAddActivity" />
+        <activity android:name=".view.activitys.TaskDetailActivity" />
     </application>
 
 </manifest>

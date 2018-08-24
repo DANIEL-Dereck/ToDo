@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="fr.rennes.perso.todo.activitys.TodoAddActivity">
+    tools:context=".view.activitys.TodoAddActivity">
 
     <TextView
         android:id="@+id/tv_name_todoAdd"

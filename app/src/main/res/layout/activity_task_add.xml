@@ -5,8 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="fr.rennes.perso.todo.activitys.TaskAddActivity"
+    tools:context=".view.activitys.TaskAddActivity"
     >
+
+    <Button
+        android:id="@+id/btn_back_taskAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:text="@string/back"
+        />
 
     <TextView
         android:id="@+id/tv_name_taskAdd"
@@ -41,18 +49,7 @@
         android:inputType="textMultiLine"
         />
 
-    <Button
-        android:id="@+id/btn_add_taskAdd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/add"
-        />
 
-    <Button
-        android:id="@+id/btn_back_taskAdd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/back"
-        />
+
 
 </LinearLayout>

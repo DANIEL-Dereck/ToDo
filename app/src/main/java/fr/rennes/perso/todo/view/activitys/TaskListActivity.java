@@ -1,4 +1,4 @@
-package fr.rennes.perso.todo.activitys;
+package fr.rennes.perso.todo.view.activitys;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import fr.rennes.perso.todo.R;
 import fr.rennes.perso.todo.adapter.TodoTaskAdapter;
 import fr.rennes.perso.todo.model.TodoTask;
-import fr.rennes.perso.todo.sqlite.TodoListRepo;
-import fr.rennes.perso.todo.sqlite.TodoTaskRepo;
+import fr.rennes.perso.todo.database.repository.OldTodoListRepo;
+import fr.rennes.perso.todo.database.repository.OldTodoTaskRepo;
 
 public class TaskListActivity extends AppCompatActivity {
     /** Activity final values */
@@ -32,7 +32,7 @@ public class TaskListActivity extends AppCompatActivity {
 
     /** Activity values */
     private ArrayList<TodoTask> taskArrayList = new ArrayList<>();
-    private TodoTaskRepo todoTaskRepo = new TodoTaskRepo();
+    private OldTodoTaskRepo oldTodoTaskRepo = new OldTodoTaskRepo();
     private TodoTaskAdapter todoTaskAdapter;
 
 
@@ -53,7 +53,7 @@ public class TaskListActivity extends AppCompatActivity {
         cb_taskList_item_cb = (CheckBox) findViewById(R.id.cb_taskList_item_cb);
 
         /** values initialisation */
-        taskArrayList = (ArrayList)todoTaskRepo.selectTasks(idList);
+//        taskArrayList = (ArrayList) oldTodoTaskRepo.selectTasks(idList);
         todoTaskAdapter = new TodoTaskAdapter(this, taskArrayList);
         todoTaskAdapter.notifyDataSetChanged();
         lv_task_taskList.setAdapter(todoTaskAdapter);
@@ -65,8 +65,8 @@ public class TaskListActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Bundle extras = getIntent().getExtras();
                 int idList = extras.getInt("todoListId");
-                TodoListRepo todoListRepo = new TodoListRepo();
-                todoListRepo.deleteListById(idList);
+                OldTodoListRepo oldTodoListRepo = new OldTodoListRepo();
+                oldTodoListRepo.deleteListById(idList);
                 setResult(RESULT_OK);
                 finish();
             }
@@ -111,8 +111,8 @@ public class TaskListActivity extends AppCompatActivity {
             Bundle extras = getIntent().getExtras();
             int idList = extras.getInt("todoListId");
 
-            TodoTaskRepo todoTaskRepo = new TodoTaskRepo();
-            taskArrayList = (ArrayList)todoTaskRepo.selectTasks(idList);
+            OldTodoTaskRepo oldTodoTaskRepo = new OldTodoTaskRepo();
+//            taskArrayList = (ArrayList) oldTodoTaskRepo.selectTasks(idList);
             todoTaskAdapter = new TodoTaskAdapter(this, taskArrayList);
             todoTaskAdapter.notifyDataSetChanged();
             lv_task_taskList.setAdapter(todoTaskAdapter);

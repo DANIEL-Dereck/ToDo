@@ -1,4 +1,4 @@
-package fr.rennes.perso.todo.activitys;
+package fr.rennes.perso.todo.view.activitys;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 import fr.rennes.perso.todo.R;
 import fr.rennes.perso.todo.model.TodoTask;
-import fr.rennes.perso.todo.sqlite.TodoTaskRepo;
+import fr.rennes.perso.todo.database.repository.OldTodoTaskRepo;
 
 /**
 * On this activity we can add a new task
@@ -58,14 +58,14 @@ public class TaskAddActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Bundle extras = getIntent().getExtras();
                 int listId = extras.getInt("idList");
-                TodoTaskRepo tTaskRepo = new TodoTaskRepo();
-                TodoTask tTask = new TodoTask(
-                        et_name_taskAdd.getText().toString(),
-                        et_desc_taskAdd.getText().toString(),
-                        false,
-                        listId
-                );
-                tTaskRepo.insert(tTask);
+                OldTodoTaskRepo tTaskRepo = new OldTodoTaskRepo();
+//                TodoTask tTask = new TodoTask(
+//                        et_name_taskAdd.getText().toString(),
+//                        et_desc_taskAdd.getText().toString(),
+//                        false,
+//                        listId
+//                );
+//                tTaskRepo.insert(tTask);
                 setResult(RESULT_OK);
                 finish();
             }
